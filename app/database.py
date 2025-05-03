@@ -12,9 +12,5 @@ SessionLocal = scoped_session(sessionmaker(bind=engine))
 Base = declarative_base()
 Base.query = SessionLocal.query_property()
 
-def init_db():
-    import app.models
-    Base.metadata.create_all(bind=engine)
-
 # session = SessionLocal()
 # print(session.execute(text('SELECT 1')).scalar())  # Должно вывести: 1

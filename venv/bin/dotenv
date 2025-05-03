@@ -1,5 +1,5 @@
 #!/bin/sh
-'''exec' "/media/alexey/Локальный диск/Документы/flaskapp/venv/bin/python3" "$0" "$@"
+'''exec' "/media/alexey/Локальный диск/Проекты/flaskapp/venv/bin/python3" "$0" "$@"
 ' '''
 # -*- coding: utf-8 -*-
 import re
