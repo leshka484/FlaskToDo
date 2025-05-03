@@ -3,3 +3,12 @@ services:
     build: .
     ports:
       - "8000:8000"
+    depends_on:
+      - database
+
+
+database:
+    image: 'postgres'
+    # command: добавить алембик 
+    env_file:
+      - app/.env
