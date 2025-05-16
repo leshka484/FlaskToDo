@@ -1,0 +1,17 @@
+.profile-container {
+    display: flex;
+    justify-content: center;      /* по горизонтали */
+    align-items: center;          /* по вертикали */
+    height: 80vh;                 /* почти весь экран */
+}
+
+.profile-info{
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+}
+.profile-info p{
+    margin-bottom: 1rem;
+}

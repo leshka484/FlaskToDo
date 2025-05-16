@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %} Профиль {% endblock %}
+
+{% block content%}
+    <div class="profile-container">
+        <div class="profile-info">
+            <p>Имя пользователя: {{ current_user.name }}</p>
+            <p>Количество персональных заметок: {{ current_user.tasks|length }}</p>
+        </div>    
+    </div>
+{% endblock %}  

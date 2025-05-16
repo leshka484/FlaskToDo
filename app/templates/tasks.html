@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %} Заметки {% endblock %}
+
+{% block content%}
+    {% if current_user.tasks %}
+        <div class="task-container">
+            {% for task in current_user.tasks %}
+            <div class="task-card">
+                <h3>{{ task.title }}</h3>
+                <p>{{ task.description }}</p>
+                <p>{{ task.task_date }}</p>
+                <p>{{ task.tags }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="no-notes">
+            <p>Нет заметок</p>
+            <a href="{{ url_for('tasks.new_task') }}" class="add-note-button">Добавить заметку</a>
+        </div>
+    {% endif %}
+{% endblock %}

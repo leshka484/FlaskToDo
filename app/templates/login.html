@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block title %} Вход {% endblock %}
+
+{% block content%}
+<div class="form-container">
+    <form action="", method="post" class="authform">
+        {{ form.hidden_tag() }}
+        <p>{{ form.name.label() }} {{form.name()}} </p>
+        <p>{{ form.password.label() }}  {{ form.password() }}</p>
+        <div class="submit-wrapper">
+            <p>{{ form.submit() }}</p>
+        </div>
+    </form>
+</div>
+{% endblock %}

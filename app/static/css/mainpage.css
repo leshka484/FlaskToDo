@@ -1,0 +1,13 @@
+/* Для главной страницы */
+
+.centered-text{
+    padding-top: 2rem;
+    padding-left: 15rem;
+    padding-right: 15rem;
+}
+.centered-text h1{
+    text-align: center;
+}
+.centered-text p{
+    text-align: left;
+}

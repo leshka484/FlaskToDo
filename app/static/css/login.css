@@ -1,0 +1,49 @@
+/* Для страницы логина */
+
+.form-container {
+    display: flex;
+    justify-content: center;      /* по горизонтали */
+    align-items: center;          /* по вертикали */
+    height: 80vh;                 /* почти весь экран */
+}
+
+.authform{
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    min-width: 300px;
+}
+.authform p{
+    margin-bottom: 1rem;
+}
+
+.authform
+input[type="text"],
+input[type="password"] {
+    padding: 0.5rem;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.authform .submit-wrapper{
+    display: flex;
+    justify-content: center; /* Центрирует по горизонтали */
+    margin-top: 1rem;
+}
+
+.authform
+input[type="submit"] {
+    padding: 0.5rem 1rem;
+    background-color: #4a90e2;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.authform
+input[type="submit"]:hover {
+    background-color: #357ABD;
+}
