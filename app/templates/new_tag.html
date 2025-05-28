@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %} Новый тег {% endblock %}
+
+{% block content%}
+    <div class="form-container">
+        <form action="", method="post" class="tagform">
+            {{ form.hidden_tag() }}
+            {% if form.name.errors %}
+                {{ form.name.label() }} {{ form.name(class="invalid") }}
+                <div class="invalid-feedback"> 
+                    {% for error in form.name.errors %}
+                    {{ error }}
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p>{{ form.name.label() }}  {{form.name()}} </p>    
+            {% endif %}
+            <div class="submit-wrapper">
+                <p>{{ form.submit() }}</p>
+            </div>
+        </form>
+    </div>
+{% endblock %}

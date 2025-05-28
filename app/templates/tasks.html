@@ -1,16 +1,22 @@
 {% extends 'base.html' %}
+
 {% block title %} Заметки {% endblock %}
 
 {% block content%}
     {% if current_user.tasks %}
         <div class="task-container">
             {% for task in current_user.tasks %}
-            <div class="task-card">
-                <h3>{{ task.title }}</h3>
-                <p>{{ task.description }}</p>
-                <p>{{ task.task_date }}</p>
-                <p>{{ task.tags }}</p>
-            </div>
+                <div class="task-wrapper">
+                    <button class="delete-btn" onclick="openModal('{{ task.id }}')">×</button>
+                    <a href="{{ url_for('tasks.edit_task', task_id=task.id)}}" class="task-card-link">
+                        <div class="task-card" id="task-{{ task.id }}">
+                            <h3>{{ task.title }}</h3>
+                            <p>{{ task.description }}</p>
+                            <p>{{ task.task_date }}</p>
+                            <p>{{ task.tags | map(attribute='name') | join(', ') or "Нет тегов"}}</p>
+                        </div>
+                    </a>
+                </div> 
             {% endfor %}
         </div>
     {% else %}
@@ -19,4 +25,21 @@
             <a href="{{ url_for('tasks.new_task') }}" class="add-note-button">Добавить заметку</a>
         </div>
     {% endif %}
+
+
+    {% block modal %}
+    <div id="deleteModal" class="modal">
+        <div class="modal-content">
+            <p>Вы действительно хотите удалить эту запись?</p>
+            <div class="modal-actions">
+                <button id="confirmDeleteBtn">Удалить</button>
+                <button onclick="closeModal()">Отмена</button>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+
+<script src="{{ url_for('static', filename='js/task_delete.js') }}"></script>
+{% endblock %}
+
+

@@ -35,4 +35,53 @@ html, body {
     background-color: #63b3ed; /* Мягкий голубой при наведении */
 }
 
+.flash-container {
+    position: fixed;
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    max-width: 300px;
+}
 
+.flash {
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.4s ease;
+    transition: opacity 0.5s ease;
+}
+.flash.fade-out {
+    animation: fadeOut 0.5s ease forwards;
+}
+
+/* Разные цвета под категории */
+.flash-success {
+    background-color: #4CAF50;
+}
+
+.flash-error,
+.flash-danger {
+    background-color: #f44336;
+}
+
+.flash-warning {
+    background-color: #ff9800;
+}
+
+.flash-info {
+    background-color: #2196F3;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; transform: translateY(0); }
+    to   { opacity: 0; transform: translateY(-10px); }
+}

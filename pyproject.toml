@@ -1,0 +1,9 @@
+[tool.mypy]
+ignore_missing_imports = true
+strict = false
+plugins = "sqlalchemy.ext.mypy.plugin"
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+extend-select = ["F", "E", "B", "I"]

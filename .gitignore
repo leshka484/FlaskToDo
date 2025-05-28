@@ -1,4 +1,6 @@
 .env
-.__pycache__
-app/__pycache__
+__pycache__/
+**/__pycache__/
 venv/
+.vscode/
+.mypy_cache/

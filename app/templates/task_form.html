@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block title %} {{ title }} {% endblock %}
+
+{% block content%}
+    <div class="form-container">
+        <form action="", method="post" class="taskform">
+            {{ form.hidden_tag() }}
+            <p>{{ form.title.label() }}  {{form.title()}} </p>
+            <p>{{ form.description.label() }}  {{ form.description() }}</p>
+            <p>{{ form.tags.label() }}  {{ form.tags() }}</p>
+            <div class="submit-wrapper">
+                <p>{{ form.submit() }}</p>
+            </div>
+        </form>
+    </div>
+{% endblock %}
