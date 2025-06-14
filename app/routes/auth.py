@@ -1,9 +1,11 @@
 from flask import Blueprint, flash, redirect, render_template, url_for
 from flask_login import login_required, login_user, logout_user
+from sqlalchemy import select
 
-from app.crud import check_password, create_user, read_user
+from app.crud import check_password, create_user
 from app.extensions import Session
 from app.forms import LoginForm, RegisterForm
+from app.models import User
 
 auth_bp = Blueprint("auth", __name__)
 
@@ -24,11 +26,15 @@ def register():
 def login():
     form = LoginForm()
     if form.validate_on_submit():
-        user = read_user(Session, form.name.data)
+        user = Session.execute(
+            select(User).where(User.name == form.name.data)
+        ).scalar_one_or_none()
         if user and check_password(user, form.password.data):
             login_user(user)
             flash("Вход выполнен успешно!", "success")
             return redirect(url_for("index"))
+        else:
+            form.general_errors.add("Неверный логин или пароль")
     return render_template("login.html", form=form)
 
 

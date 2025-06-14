@@ -85,3 +85,19 @@ html, body {
     from { opacity: 1; transform: translateY(0); }
     to   { opacity: 0; transform: translateY(-10px); }
 }
+
+
+/* Ошибки форм */
+.invalid {
+    border: 2px solid #dc3545; /* красная рамка */
+    background-color: #f8d7da; /* светло-красный фон */
+    color: #721c24; /* цвет текста ошибки */
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.invalid-feedback {
+    color: #dc3545;
+    font-size: 0.9rem;
+    margin-top: 0.25rem;
+}

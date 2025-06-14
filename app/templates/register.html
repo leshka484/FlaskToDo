@@ -3,11 +3,21 @@
 
 {% block content%}
 <div class="form-container">
-    <form action="", method="post" class="authform">
+    <form action="" method="post" class="authform">
         {{ form.hidden_tag() }}
-        <p>{{ form.name.label() }} {{form.name()}} </p>
-        <p>{{ form.password.label() }}  {{ form.password() }}</p>
-        <p>{{ form.password2.label() }}  {{ form.password2() }}</p>
+        {% for field in form if field.name not in['csrf_token', 'submit'] %}
+            <p>{{ field.label() }}</p>
+            {% if field.errors %}
+                {{ field(class = "invalid") }}
+                <div class="invalid-feedback"> 
+                    {% for error in field.errors %}
+                    {{ error }}
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ field() }}
+            {% endif %}
+        {% endfor %}
         <div class="submit-wrapper">
             <p>{{ form.submit() }}</p>
         </div>
